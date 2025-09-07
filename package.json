@@ -1,0 +1,45 @@
+{
+  "name": "contacts",
+  "version": "1.0.0",
+  "description": "This project will provide an API for storing and retrieving information about contacts. These contacts will be stored in a MongoDB database and all interaction will happen through the API that you create. You will not need to create a frontend for this project, instead you are creating the API that could be used by any frontend in the future.",
+  "homepage": "https://github.com/siaheguelable/Contacts#readme",
+  "bugs": {
+    "url": "https://github.com/siaheguelable/Contacts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siaheguelable/Contacts.git"
+  },
+  "license": "ISC",
+  "author": "SIAHE GULEABLE CURTIS",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "start:prod": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongodb": "^6.19.0",
+    "mongoose": "^8.18.0",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
