@@ -1,6 +1,32 @@
 const routes = require('express').Router();
 const userController = require('../Controllers/User');
 
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Get all users
+ *     responses:
+ *       200:
+ *         description: A list of users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                   name:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   age:
+ *                     type: integer
+ *
+ */
+
 // Get all users
 routes.get('/', userController.getAllUsers);
 
