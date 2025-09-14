@@ -45,6 +45,16 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+// Delete all users
+exports.deleteAllUsers = async (req, res) => {
+  try {
+    await User.deleteMany();
+    res.json({ message: 'All users deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // Get a user by ID
 exports.getUserById = async (req, res) => {
   try {

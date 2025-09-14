@@ -35,6 +35,8 @@ routes.put('/users/:id', userController.updateUser);
 
 // Delete a user by id
 routes.delete('/:id', userController.deleteUser);
+// Delete all users
+routes.delete('/', userController.deleteAllUsers);
 
 // Get a user by id
 routes.get('/:id', userController.getUserById);

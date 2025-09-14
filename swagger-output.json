@@ -5,10 +5,10 @@
     "description": "API documentation generated with swagger-autogen",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "your-app-name.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {
@@ -23,6 +23,17 @@
     },
     "/users/": {
       "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
         "description": "",
         "responses": {
           "200": {
