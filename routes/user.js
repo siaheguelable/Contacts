@@ -3,45 +3,84 @@ const userController = require('../Controllers/User');
 
 /**
  * @swagger
- * /api/users:
+ * /users:
  *   get:
  *     summary: Get all users
  *     responses:
  *       200:
- *         description: A list of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                   name:
- *                     type: string
- *                   email:
- *                     type: string
- *                   age:
- *                     type: integer
+ *         description: List of users
+ *   post:
+ *     summary: Create a new user
+ *     parameters:
+ *       - in: body
+ *         name: user
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             name:
+ *               type: string
+ *             email:
+ *               type: string
+ *             age:
+ *               type: integer
+ *     responses:
+ *       200:
+ *         description: User created
  *
+ * /users/{id}:
+ *   get:
+ *     summary: Get user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: User found
+ *   put:
+ *     summary: Update user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         type: string
+ *       - in: body
+ *         name: user
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             name:
+ *               type: string
+ *             email:
+ *               type: string
+ *             age:
+ *               type: integer
+ *     responses:
+ *       200:
+ *         description: User updated
+ *   delete:
+ *     summary: Delete user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: User deleted
  */
 
-// Get all users
+// Routes
 routes.get('/', userController.getAllUsers);
-
-// Update a user by id
-routes.put('/users/:id', userController.updateUser);
-
-// Delete a user by id
-routes.delete('/:id', userController.deleteUser);
-// Delete all users
-routes.delete('/', userController.deleteAllUsers);
-
-// Get a user by id
+routes.post('/', userController.createUser);
 routes.get('/:id', userController.getUserById);
+routes.put('/:id', userController.updateUser);
+routes.delete('/:id', userController.deleteUser);
 
-// Create a new user
-routes.post('/', userController.createUser); // <-- Make sure this exists!
+// Optional: delete all users
+routes.delete('/', userController.deleteAllUsers);
 
 module.exports = routes;

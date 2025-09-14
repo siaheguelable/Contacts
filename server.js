@@ -4,23 +4,27 @@ const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/user'); // lowercase 'user'
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
+const cors = require('cors');
 
 connectDB();
 
 const app = express();
 
-// middleware
+// Enable CORS
+app.use(cors());
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Swagger docs route
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile)); // <-- only here
+// Swagger docs
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-// main routes
+// Main routes
 app.use('/', indexRoutes);
-app.use('/users', userRoutes); // all user CRUD routes handled here
+app.use('/users', userRoutes);
 
-// set the port
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

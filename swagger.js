@@ -4,12 +4,14 @@ const doc = {
   info: {
     title: 'My API',
     description: 'API documentation generated with swagger-autogen',
+    version: '1.0.0',
   },
-  host: process.env.RENDER_HOST || 'localhost:8080',
+  host: process.env.RENDER_HOST || 'localhost:3000',
   schemes: process.env.RENDER_SCHEME ? [process.env.RENDER_SCHEME] : ['http'],
+  basePath: '/',
 };
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./server.js']; // entry point where your routes are defined
+const endpointsFiles = ['./server.js']; // your main server file
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
