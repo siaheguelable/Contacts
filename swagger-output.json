@@ -36,6 +36,7 @@
       "post": {
         "description": "",
         "responses": {
+          
           "200": {
             "description": "OK"
           },
@@ -43,42 +44,9 @@
             "description": "Bad Request"
           }
         }
-      },
-      "delete": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
       }
     },
-    "/users/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
+    "/users/users/{id}": {
       "put": {
         "description": "",
         "parameters": [
@@ -100,8 +68,32 @@
             "description": "Not Found"
           }
         }
-      },
+      }
+    },
+    "/users/{id}": {
       "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
         "description": "",
         "parameters": [
           {
