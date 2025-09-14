@@ -1,7 +1,7 @@
 const express = require('express');
 const connectDB = require('./DB/connection');
 const indexRoutes = require('./routes/index');
-const userRoutes = require('./routes/user'); // <-- lowercase 'user'
+const userRoutes = require('./routes/user'); // lowercase 'user'
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 
@@ -9,15 +9,14 @@ connectDB();
 
 const app = express();
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-app.use('/api/users', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// main routes
+// Swagger docs route
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile)); // <-- only here
 
+// main routes
 app.use('/', indexRoutes);
 app.use('/users', userRoutes); // all user CRUD routes handled here
 
