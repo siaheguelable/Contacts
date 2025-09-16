@@ -18,12 +18,17 @@ const userController = require('../Controllers/User');
  *         schema:
  *           type: object
  *           properties:
- *             name:
+ *             firstName:
+ *               type: string
+ *             lastName:
  *               type: string
  *             email:
  *               type: string
- *             age:
- *               type: integer
+ *             favoriteColor:
+ *               type: string
+ *             birthday:
+ *               type: string
+ *               format: date
  *     responses:
  *       200:
  *         description: User created
@@ -52,12 +57,17 @@ const userController = require('../Controllers/User');
  *         schema:
  *           type: object
  *           properties:
- *             name:
+ *             firstName:
+ *               type: string
+ *             lastName:
  *               type: string
  *             email:
  *               type: string
- *             age:
- *               type: integer
+ *             favoriteColor:
+ *               type: string
+ *             birthday:
+ *               type: string
+ *               format: date
  *     responses:
  *       200:
  *         description: User updated
