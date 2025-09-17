@@ -9,11 +9,19 @@ const userController = require('../Controllers/User');
  *     responses:
  *       200:
  *         description: List of users
+ */
+routes.get('/', userController.getAllUsers);
+
+/**
+ * @swagger
+ * /users:
  *   post:
  *     summary: Create a new user
+ *     consumes:
+ *       - application/json
  *     parameters:
  *       - in: body
- *         name: user
+ *         name: body
  *         required: true
  *         schema:
  *           type: object
@@ -30,9 +38,13 @@ const userController = require('../Controllers/User');
  *               type: string
  *               format: date
  *     responses:
- *       200:
+ *       201:
  *         description: User created
- *
+ */
+routes.post('/', userController.createUser);
+
+/**
+ * @swagger
  * /users/{id}:
  *   get:
  *     summary: Get user by ID
@@ -44,15 +56,23 @@ const userController = require('../Controllers/User');
  *     responses:
  *       200:
  *         description: User found
+ */
+routes.get('/:id', userController.getUserById);
+
+/**
+ * @swagger
+ * /users/{id}:
  *   put:
  *     summary: Update user by ID
+ *     consumes:
+ *       - application/json
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         type: string
  *       - in: body
- *         name: user
+ *         name: body
  *         required: true
  *         schema:
  *           type: object
@@ -71,6 +91,12 @@ const userController = require('../Controllers/User');
  *     responses:
  *       200:
  *         description: User updated
+ */
+routes.put('/:id', userController.updateUser);
+
+/**
+ * @swagger
+ * /users/{id}:
  *   delete:
  *     summary: Delete user by ID
  *     parameters:
@@ -82,12 +108,6 @@ const userController = require('../Controllers/User');
  *       200:
  *         description: User deleted
  */
-
-// Routes
-routes.get('/', userController.getAllUsers);
-routes.post('/', userController.createUser);
-routes.get('/:id', userController.getUserById);
-routes.put('/:id', userController.updateUser);
 routes.delete('/:id', userController.deleteUser);
 
 // Optional: delete all users

@@ -5,10 +5,10 @@
     "description": "API documentation generated with swagger-autogen",
     "version": "1.0.0"
   },
-  "host": "contacts-2-q2ip.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
@@ -36,42 +36,28 @@
       "post": {
         "description": "",
         "responses": {
-          
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
           }
         }
-      }
-    },
-    "/users/users/{id}": {
-      "put": {
+      },
+      "delete": {
         "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/users/{id}": {
-      "delete": {
+      "get": {
         "description": "",
         "parameters": [
           {
@@ -93,7 +79,29 @@
           }
         }
       },
-      "get": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
         "description": "",
         "parameters": [
           {
