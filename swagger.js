@@ -12,6 +12,7 @@ const doc = {
 };
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./server.js']; // your main server file
+// Scan both server.js and routes/user.js!
+const endpointsFiles = ['./server.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);

@@ -4,7 +4,7 @@ const User = require('../models/User');
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
-    res.json({ message: 'All the users info are here', users });
+    res.json({ message: 'All users fetched successfully', users });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -15,7 +15,9 @@ exports.createUser = async (req, res) => {
   try {
     const user = new User(req.body);
     const newUser = await user.save();
-    res.json({ message: 'User created:', user: newUser });
+    res
+      .status(201)
+      .json({ message: 'User created successfully', user: newUser });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -26,9 +28,10 @@ exports.updateUser = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
+      runValidators: true, // ✅ ensures validation on update
     });
     if (!user) return res.status(404).json({ message: 'User not found' });
-    res.json(user);
+    res.json({ message: 'User updated successfully', user });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
